@@ -18,13 +18,17 @@ function AuthProvider({ children }) {
     function isUserAuthenticated() {
         const user = localStorage.getItem('@foodexplorer:user')
 
-        if (!user) return false
+        if (!user) {
+            return false
+        }
 
         const token = localStorage.getItem('@foodexplorer:token')
         const tokenExpiration = jwtDecode(token).exp
         const currentTime = Math.floor(Date.now() / 1000)
 
-        if (currentTime > tokenExpiration) return false
+        if (currentTime > tokenExpiration) {
+            return false
+        }
 
         return true
     }
@@ -46,12 +50,12 @@ function AuthProvider({ children }) {
     }
 
     useEffect(() => {
-        const user = localStorage.getItem('@foodexplorer:user')
         const token = localStorage.getItem('@foodexplorer:token')
+        const user = localStorage.getItem('@foodexplorer:user')
 
         if (token && user) {
             api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-            setData({ user: JSON.parse(user), token })
+            setData({ token, user: JSON.parse(user) })
         }
     }, [])
 
