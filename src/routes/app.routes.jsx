@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Home } from "../pages/Home";
 import { New } from "../pages/New";
 import { Dish } from "../pages/Dish";
-// import { Edit } from "../pages/Edit";
+import { Edit } from "../pages/Edit";
 // import { Favorites } from "../pages/Favorites";
 
 export function AppRoutes({ isAdmin }) {
@@ -12,8 +12,8 @@ export function AppRoutes({ isAdmin }) {
             <Route path="/" element={<Home isAdmin={isAdmin} />} />
             <Route path="/new" element={<New isAdmin={isAdmin} />} />
             <Route path="/dish/:id" element={<Dish isAdmin={isAdmin} />} />
-            {/* <Route path="/edit/:id" element={<Edit isAdmin={isAdmin} />} />
-            <Route path="/favorites" element={<Favorites isAdmin={isAdmin} />} /> */}
+            <Route path="/edit/:id" element={<Edit isAdmin={isAdmin} />} />
+            {/* <Route path="/favorites" element={<Favorites isAdmin={isAdmin} />} /> */}
         </Routes>
     )
 }

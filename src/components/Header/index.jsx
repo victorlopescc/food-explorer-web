@@ -30,7 +30,7 @@ export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSear
         navigate('/new')
     }
 
-    function handleLogout() {
+    function handleSignOut() {
         navigate('/')
         signOut()
     }
