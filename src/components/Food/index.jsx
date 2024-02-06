@@ -38,7 +38,7 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
         navigate(`/edit/${data.id}`)
     }
 
-    async function handleAddToCart() {
+    async function handleInclude() {
         setLoading(true)
 
         try {
